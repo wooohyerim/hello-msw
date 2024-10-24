@@ -1,6 +1,7 @@
 import { delay, http, HttpResponse } from "msw"
 import mockdata from "./mockdata"
 
+// 진짜 데이터
 export const getPokeList = async() => {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1&offset=0")
     const data = await res.json()
@@ -17,7 +18,7 @@ const sleep = (timeout:number) => {
 }
 
 
-
+// mock data
 export const getMockPokeList = async() => {
     await sleep(150)
     return mockdata
@@ -25,7 +26,7 @@ export const getMockPokeList = async() => {
 
 
 
-// msw
+// msw data
 // 한번만 인스톨
 export const getMSWPokeList = http.get("https://pokeapi.co/api/v2/pokemon?limit=1&offset=0", async ()=>{
     await delay(150)
